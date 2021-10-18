@@ -29,7 +29,7 @@ const SignUpPage = () => {
 
     const signinWithEmailPasswordHandler = e => {
         e.preventDefault();
-        if (email != '' && pass != '' && name != '') {
+        if (email !== '' && pass !== '' && name !== '') {
             signUpUser(email, pass, name);
         }
     }
@@ -59,7 +59,7 @@ const SignUpPage = () => {
                             <Form.Control onBlur={handlePassChange} type="password" placeholder="Password" required />
                         </Form.Group>
                         {
-                            error != '' ? (<p className="text-danger"> {error}</p>) : (<></>)
+                            error !== '' ? (<p className="text-danger"> {error}</p>) : (<></>)
                         }
                         <div className="d-flex flex-column flex-md-row justify-content-between align-items-center">
                             <Button onClick={signinWithEmailPasswordHandler} variant="primary" type="submit">

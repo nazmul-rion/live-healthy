@@ -8,6 +8,7 @@ import SigninPage from './pages/Authentication/SignInPage';
 import SignUpPage from './pages/Authentication/SignUpPage';
 import PrivateRoute from './routes/PrivateRoute';
 import ServiceDetailsPage from './pages/ServiceDetailsPage/ServiceDetailsPage';
+import Footer from './pages/Footer/Footer';
 
 function App() {
   return (
@@ -26,8 +27,13 @@ function App() {
             <ServiceDetailsPage />
           </PrivateRoute>
 
+          <PrivateRoute path="/appointment">
+            <ServiceDetailsPage />
+          </PrivateRoute>
+
           <Route path="*"><NotFound /></Route>
         </Switch>
+        <Footer />
       </AuthProvider>
     </BrowserRouter >
 

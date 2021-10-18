@@ -26,7 +26,7 @@ const Navigationbar = () => {
                         <Nav className="me-auto">
                             <Link className="text-decoration-none text-dark mx-3" to="/home">Home</Link>
                             <Link className="text-decoration-none text-dark mx-3" to="/serviceDetails">Details</Link>
-                            <Link className="text-decoration-none text-dark mx-3" to="/homse">Home</Link>
+                            <Link className="text-decoration-none text-dark mx-3" to="/appointment">Make Appointment</Link>
 
                         </Nav>
                         {user.displayName ? (

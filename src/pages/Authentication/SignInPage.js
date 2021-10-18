@@ -22,7 +22,7 @@ const SigninPage = () => {
 
     const signinWithEmailPasswordHandler = e => {
         e.preventDefault();
-        if (email != '' && pass != '') {
+        if (email !== '' && pass !== '') {
             signInUser(email, pass);
         }
     }
@@ -47,7 +47,7 @@ const SigninPage = () => {
 
                         </Form.Group>
                         {
-                            error != '' ? (<p className="text-danger"> {error}</p>) : (<></>)
+                            error !== '' ? (<p className="text-danger"> {error}</p>) : (<></>)
                         }
                         <div className="d-flex flex-column flex-md-row justify-content-center align-items-center">
                             <Button className="m-3" onClick={signinWithEmailPasswordHandler} variant="primary" type="submit">

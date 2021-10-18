@@ -10,6 +10,7 @@ initializeAuthentication()
 const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(true);
     const auth = getAuth();
     const history = useHistory();
 
@@ -19,6 +20,11 @@ const useFirebase = () => {
             if (user) {
                 setUser(user);
             }
+            else {
+                setUser({});
+            }
+
+            setLoading(false);
         })
     }, [auth])
 
@@ -26,6 +32,7 @@ const useFirebase = () => {
     const signUpUser = (email, password, name, image) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((res) => {
+                setLoading(true);
                 setUser(res.user)
                 updateProfile(auth.currentUser, {
                     displayName: name,
@@ -35,17 +42,18 @@ const useFirebase = () => {
                     history.push('/');
                 })
 
-            }).catch(err => setError(err.message))
+            }).finally(() => setLoading(false)).catch(err => setError(err.message));
     }
 
     //sign in functionality
     const signInUser = (email, password) => {
         signInWithEmailAndPassword(auth, email, password)
             .then(res => {
+                setLoading(true);
                 setUser(res.user);
                 alert("Sign in Successful!")
                 history.push('/');
-            })
+            }).finally(() => setLoading(false))
             .catch(err => setError(err.message))
     }
 
@@ -55,10 +63,11 @@ const useFirebase = () => {
         const googleProvider = new GoogleAuthProvider();
         signInWithPopup(auth, googleProvider)
             .then(res => {
+                setLoading(true);
                 setUser(res.user);
                 alert("Account has been created!");
                 history.push('/');
-            }).catch(err => setError(err.message))
+            }).finally(() => setLoading(false)).catch(err => setError(err.message))
     }
 
     // sign out 
@@ -67,7 +76,7 @@ const useFirebase = () => {
             setUser({});
             alert("Logout Successful!");
             history.push('/signin')
-        }).catch((err) => {
+        }).finally(() => setLoading(false)).catch((err) => {
             setError(err.message);
         });
     }
@@ -75,6 +84,7 @@ const useFirebase = () => {
     return {
         user,
         error,
+        loading,
         signUpUser,
         signInUser,
         signInWithGoogle,

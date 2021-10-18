@@ -1,9 +1,9 @@
 import React from 'react'
-import { Button, Carousel, Col, Container, Row } from 'react-bootstrap'
+import { Button, Col, Container, Row } from 'react-bootstrap'
 import banner from '../../images/banner.png'
 const Banner = () => {
     return (
-        <Container fluid className="mb-5">
+        <Container fluid className="mb-5 bg-custom" >
 
             <Row className="flex-column-reverse flex-lg-row align-items-center justify-content-center">
                 <Col sm={12} md={6}>

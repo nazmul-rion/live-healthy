@@ -1,0 +1,42 @@
+[
+    {
+        "key": 1,
+        "docName": "Prof. A.T.M. Khalilur Rahman",
+        "role": "Cardiac Anaesthesia",
+        "montofri": "08.00 - 17.00",
+        "sat": "12.00 - 15.00",
+        "sun": "10.00 - 16.00",
+        "rating": 4.7,
+        "img": "https://www.nhf.org.bd/images/doctor_images/2006.jpg"
+    },
+    {
+        "key": 2,
+        "docName": "Prof. Dr. Farooque Ahmed",
+        "role": "CTS",
+        "montofri": "11.00 - 20.00",
+        "sat": "12.00 - 02.00",
+        "sun": "18.00 - 23.00",
+        "rating": 4.4,
+        "img": "https://www.nhf.org.bd/images/doctor_images/2007.jpg"
+    },
+    {
+        "key": 3,
+        "docName": "Prof. Dr. Nazir Ahmed",
+        "role": "Cardiology",
+        "montofri": "08.00 - 20.00",
+        "sat": "15.00 - 17.00",
+        "sun": "01.00 - 17.00",
+        "rating": 4.4,
+        "img": "https://www.nhf.org.bd/images/doctor_images/2010.jpg"
+    },
+    {
+        "key": 4,
+        "docName": "Dr. Haroon Rasheed",
+        "role": "CV & TS",
+        "montofri": "08.00 - 12.00",
+        "sat": "15.00 - 22.00",
+        "sun": "01.00 - 15.00",
+        "rating": 4.4,
+        "img": "https://www.nhf.org.bd/images/doctor_images/2022.jpg"
+    }
+]
