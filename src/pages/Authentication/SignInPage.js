@@ -6,20 +6,25 @@ import logo from '../../images/favicon.ico'
 
 const SigninPage = () => {
 
-    const { signInWithGoogle, signInUser } = useAuth();
+    const { signInWithGoogle, signInUser, error } = useAuth();
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
+    const [validated, setValidated] = useState(false);
     const handleEmailChange = e => {
         setEmail(e.target.value);
+        setValidated(true);
     }
 
     const handlePassChange = e => {
         setPass(e.target.value);
+        setValidated(true);
     }
 
     const signinWithEmailPasswordHandler = e => {
         e.preventDefault();
-        signInUser(email, pass);
+        if (email != '' && pass != '') {
+            signInUser(email, pass);
+        }
     }
     return (
         <Container fluid className="bg-custom">
@@ -30,7 +35,7 @@ const SigninPage = () => {
 
             <Container fluid className="row justify-content-center">
                 <Card className="sign-card col mb-5">
-                    <Form className="mt-5 mx-2 mb-3">
+                    <Form validated={validated} className="mt-5 mx-2 mb-3">
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control onBlur={handleEmailChange} type="email" placeholder="Enter email" required />
@@ -39,7 +44,11 @@ const SigninPage = () => {
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
                             <Form.Control onBlur={handlePassChange} type="password" placeholder="Password" required />
+
                         </Form.Group>
+                        {
+                            error != '' ? (<p className="text-danger"> {error}</p>) : (<></>)
+                        }
                         <div className="d-flex flex-column flex-md-row justify-content-center align-items-center">
                             <Button className="m-3" onClick={signinWithEmailPasswordHandler} variant="primary" type="submit">
                                 Singn In
@@ -54,7 +63,7 @@ const SigninPage = () => {
                 </Card>
 
             </Container>
-        </Container>
+        </Container >
 
 
     )

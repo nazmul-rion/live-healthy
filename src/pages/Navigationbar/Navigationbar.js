@@ -24,9 +24,9 @@ const Navigationbar = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Link className="text-decoration-none text-dark" to="/home">Home</Link>
-                            <Link className="text-decoration-none text-dark" to="/home">Home</Link>
-                            <Link className="text-decoration-none text-dark" to="/homse">Home</Link>
+                            <Link className="text-decoration-none text-dark mx-3" to="/home">Home</Link>
+                            <Link className="text-decoration-none text-dark mx-3" to="/serviceDetails">Details</Link>
+                            <Link className="text-decoration-none text-dark mx-3" to="/homse">Home</Link>
 
                         </Nav>
                         {user.displayName ? (

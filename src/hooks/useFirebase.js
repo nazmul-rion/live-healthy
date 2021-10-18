@@ -9,6 +9,7 @@ initializeAuthentication()
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
+    const [error, setError] = useState('');
     const auth = getAuth();
     const history = useHistory();
 
@@ -34,7 +35,7 @@ const useFirebase = () => {
                     history.push('/');
                 })
 
-            }).catch(err => alert("Something went wrong!", `${err.message}`, "error"))
+            }).catch(err => setError(err.message))
     }
 
     //sign in functionality
@@ -45,7 +46,7 @@ const useFirebase = () => {
                 alert("Sign in Successful!")
                 history.push('/');
             })
-            .catch(err => alert("Something went wrong!", `${err.message}`, "error"))
+            .catch(err => setError(err.message))
     }
 
 
@@ -57,7 +58,7 @@ const useFirebase = () => {
                 setUser(res.user);
                 alert("Account has been created!");
                 history.push('/');
-            }).catch(err => console.log(err.message))
+            }).catch(err => setError(err.message))
     }
 
     // sign out 
@@ -67,12 +68,13 @@ const useFirebase = () => {
             alert("Logout Successful!");
             history.push('/signin')
         }).catch((err) => {
-            alert("Something went wrong!", `${err.message}`, "error")
+            setError(err.message);
         });
     }
 
     return {
         user,
+        error,
         signUpUser,
         signInUser,
         signInWithGoogle,

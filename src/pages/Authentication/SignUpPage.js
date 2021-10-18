@@ -6,27 +6,32 @@ import logo from '../../images/favicon.ico'
 
 const SignUpPage = () => {
 
-    const { signInWithGoogle, signUpUser } = useAuth();
+    const { signInWithGoogle, signUpUser, error } = useAuth();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
+    const [validated, setValidated] = useState(false);
 
     const handleNameChange = e => {
         setName(e.target.value);
+        setValidated(true);
     }
 
     const handleEmailChange = e => {
         setEmail(e.target.value);
+        setValidated(true);
     }
 
     const handlePassChange = e => {
         setPass(e.target.value);
+        setValidated(true);
     }
 
     const signinWithEmailPasswordHandler = e => {
         e.preventDefault();
-
-        signUpUser(email, pass, name);
+        if (email != '' && pass != '' && name != '') {
+            signUpUser(email, pass, name);
+        }
     }
 
     return (
@@ -38,7 +43,7 @@ const SignUpPage = () => {
 
             <Container fluid className="row justify-content-center">
                 <Card className="sign-card col mb-5">
-                    <Form className="mt-5 mx-2 mb-3">
+                    <Form validated={validated} className="mt-5 mx-2 mb-3">
                         <Form.Group className="mb-3" controlId="formBasicName">
                             <Form.Label>Full Name</Form.Label>
                             <Form.Control onBlur={handleNameChange} type="text" placeholder="Enter Full Name" required />
@@ -53,6 +58,9 @@ const SignUpPage = () => {
                             <Form.Label>Password</Form.Label>
                             <Form.Control onBlur={handlePassChange} type="password" placeholder="Password" required />
                         </Form.Group>
+                        {
+                            error != '' ? (<p className="text-danger"> {error}</p>) : (<></>)
+                        }
                         <div className="d-flex flex-column flex-md-row justify-content-between align-items-center">
                             <Button onClick={signinWithEmailPasswordHandler} variant="primary" type="submit">
                                 Singn Up

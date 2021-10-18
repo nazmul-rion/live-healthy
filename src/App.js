@@ -4,9 +4,10 @@ import AuthProvider from './context/AuthProvider';
 import HomePage from './pages/HomePage/HomePage';
 import NotFound from './pages/NotFound/NotFound';
 import Navigationbar from './pages/Navigationbar/Navigationbar';
-import PublicRoute from './routes/PublicRoute';
 import SigninPage from './pages/Authentication/SignInPage';
 import SignUpPage from './pages/Authentication/SignUpPage';
+import PrivateRoute from './routes/PrivateRoute';
+import ServiceDetailsPage from './pages/ServiceDetailsPage/ServiceDetailsPage';
 
 function App() {
   return (
@@ -14,10 +15,17 @@ function App() {
       <AuthProvider>
         <Navigationbar />
         <Switch>
-          <PublicRoute exact path="/"><HomePage /></PublicRoute>
-          <PublicRoute exact path="/home"><HomePage /></PublicRoute>
-          <PublicRoute exact path="/signin"><SigninPage /></PublicRoute>
-          <PublicRoute exact path="/signup"><SignUpPage /></PublicRoute>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+          <Route path="/home"><HomePage /></Route>
+          <Route path="/signin"><SigninPage /></Route>
+          <Route path="/signup"><SignUpPage /></Route>
+
+          <PrivateRoute path="/serviceDetails">
+            <ServiceDetailsPage />
+          </PrivateRoute>
+
           <Route path="*"><NotFound /></Route>
         </Switch>
       </AuthProvider>
