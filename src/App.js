@@ -5,9 +5,8 @@ import HomePage from './pages/HomePage/HomePage';
 import NotFound from './pages/NotFound/NotFound';
 import Navigationbar from './pages/Navigationbar/Navigationbar';
 import PublicRoute from './routes/PublicRoute';
-import PrivateRoute from './routes/PrivateRoute';
-import SigninPage from './pages/Login/SignInPage';
-import SignUpPage from './pages/Login/SignUpPage';
+import SigninPage from './pages/Authentication/SignInPage';
+import SignUpPage from './pages/Authentication/SignUpPage';
 
 function App() {
   return (

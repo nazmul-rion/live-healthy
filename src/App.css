@@ -36,3 +36,11 @@
    color: #fff;
    text-decoration: none;
  }
+
+ .sign-card{
+     max-width: 500px;
+     border-radius: 13px 11px 50px 13px;
+ }
+ .sign-card:hover{
+    box-shadow: 10px 5px 12px 1px rgba(0,0,0,0.44);
+}

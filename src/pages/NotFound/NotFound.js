@@ -1,5 +1,5 @@
 import React from 'react'
-import NotFoundCSS from './NotFound.css'
+import './NotFound.css'
 import logo from '../../images/notfound.png'
 import { Link } from 'react-router-dom'
 import { Col, Container, Image, Row } from 'react-bootstrap'

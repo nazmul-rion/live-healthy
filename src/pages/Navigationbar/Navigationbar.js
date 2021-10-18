@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Container, Nav, Navbar, Button } from 'react-bootstrap';
 import { Link, useHistory } from "react-router-dom";
 import useAuth from '../../hooks/useAuth';
@@ -33,8 +32,9 @@ const Navigationbar = () => {
                         {user.displayName ? (
                             <>
                                 <Navbar.Text>
-                                    <img className="rounded rounded-circle" src={user.photoURL} alt="" srcset="" />
-                                    Signed in as: {user.displayName}
+                                    <img className="rounded rounded-circle" height="40" width="40" src={user.photoURL} alt="N/A" />
+                                    <b className="mx-3">{user.displayName}</b>
+                                    <Button variant="danger" onClick={signOutUser}>Sign Out <i className="fas fa-sign-out-alt"></i></Button>{' '}
                                 </Navbar.Text>
                             </>
                         ) : (
