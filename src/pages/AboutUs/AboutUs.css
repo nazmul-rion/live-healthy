@@ -1,0 +1,36 @@
+.text-color{
+    color:#6d00b6;
+}
+
+.fa-star{
+    color: #6400b6;
+}
+.fa-star-half-alt{
+    color: #6400b6;
+}
+.card2{
+    width: 100%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow:0px 0px 10px #b7a0c2;
+    max-width: 90%;
+    margin-top: 0;
+    padding: 50px 0px;
+}
+.text-followers{
+    text-align: center;
+    margin-bottom: 0;
+}
+.text-followers2{
+    margin-top: 0;
+    font-size:18px;
+    text-align: center;
+
+}
+.icon{
+    color: #4000b6;
+    font-size: 2.5rem;
+}
+.d-flex{
+    justify-content: space-around;
+}

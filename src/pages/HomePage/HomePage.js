@@ -1,5 +1,6 @@
 import React from 'react'
 import Banner from './Banner'
+import Department from './Department'
 import Doctors from './Doctors'
 
 const HomePage = () => {
@@ -8,9 +9,9 @@ const HomePage = () => {
             <Banner></Banner>
             <div>
                 <div className="mb-5">
-                    <h2 className="welcome-home text-center mb-3">
-                        WELCOME TO OUR CLINIC
-                    </h2>
+                    <div className="mb-5 container">
+                        <Department></Department>
+                    </div>
                 </div>
 
                 <div className="mb-5 container">
@@ -19,6 +20,8 @@ const HomePage = () => {
                     </h2>
                     <Doctors></Doctors>
                 </div>
+
+
 
             </div>
         </div>

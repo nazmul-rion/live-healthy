@@ -9,6 +9,8 @@ import SignUpPage from './pages/Authentication/SignUpPage';
 import PrivateRoute from './routes/PrivateRoute';
 import ServiceDetailsPage from './pages/ServiceDetailsPage/ServiceDetailsPage';
 import Footer from './pages/Footer/Footer';
+import AboutUs from './pages/AboutUs/AboutUs';
+import Appointment from './pages/AppointmentPage/Appointment';
 
 function App() {
   return (
@@ -22,14 +24,16 @@ function App() {
           <Route path="/home"><HomePage /></Route>
           <Route path="/signin"><SigninPage /></Route>
           <Route path="/signup"><SignUpPage /></Route>
+          <Route path="/about">
+            <AboutUs />
+          </Route>
 
-          <PrivateRoute path="/serviceDetails">
+          <PrivateRoute path="/serviceDetails/:id">
             <ServiceDetailsPage />
           </PrivateRoute>
-
-          <PrivateRoute path="/appointment">
-            <ServiceDetailsPage />
-          </PrivateRoute>
+          <Route path="/appointment">
+            <Appointment />
+          </Route>
 
           <Route path="*"><NotFound /></Route>
         </Switch>
