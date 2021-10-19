@@ -1,5 +1,6 @@
 import React from 'react'
 import Banner from './Banner'
+import ChooseUs from './ChooseUs'
 import Department from './Department'
 import Doctors from './Doctors'
 
@@ -19,6 +20,10 @@ const HomePage = () => {
                         Our Specialist
                     </h2>
                     <Doctors></Doctors>
+                </div>
+
+                <div>
+                    <ChooseUs />
                 </div>
 
 

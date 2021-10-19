@@ -12,7 +12,7 @@ const DepartmentCard = (props) => {
                     <div >
                         <b><p className="text-custom">{name}</p></b>
                         <p >{des}</p>
-                        <Link to={`/serviceDetails/${key}`}>Learn More <i className="fas fa-arrow-right"></i></Link>
+                        <Link className="btn btn-info" to={`/serviceDetails/${key}`}>Learn More <i className="fas fa-arrow-right"></i></Link>
                     </div>
                 </div>
             </div>
