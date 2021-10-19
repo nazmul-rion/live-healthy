@@ -54,7 +54,7 @@ const SigninPage = () => {
                                 Singn In
                             </Button>
                             <Button className="m-3" onClick={signInWithGoogle}>
-                                <i onClick={signInWithGoogle} className="fab fa-google-plus"></i> Sign in With Google</Button>
+                                <i className="fab fa-google-plus"></i> Sign in With Google</Button>
                         </div>
                         <div className="text-center">
                             <b>Or <Link className="text-decoration-none" to="/signup">Need an Account?</Link> </b>

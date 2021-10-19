@@ -66,7 +66,7 @@ const SignUpPage = () => {
                                 Singn Up
                             </Button>
                             <Button className="m-3" onClick={signInWithGoogle}>
-                                <i onClick={signInWithGoogle} className="fab fa-google-plus"></i> Sign Up With Google</Button>
+                                <i className="fab fa-google-plus"></i> Sign Up With Google</Button>
                         </div>
                         <div className="d-flex justify-content-center">
                             <Link className="text-decoration-none fw-bold" to="/signin">Aready have an Account?</Link>

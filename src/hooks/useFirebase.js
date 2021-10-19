@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useEffect, useState } from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import initializeAuthentication from '../config/firebase';
 
 
@@ -13,7 +13,9 @@ const useFirebase = () => {
     const [loading, setLoading] = useState(true);
     const auth = getAuth();
     const history = useHistory();
-
+    const location = useLocation();
+    console.log(location.state?.from);
+    const redirectUrl = location.state?.from || '/';
     //on State Change 
     useEffect(() => {
         onAuthStateChanged(auth, user => {
@@ -38,8 +40,7 @@ const useFirebase = () => {
                     displayName: name,
                     photoURL: image
                 }).then(() => {
-                    alert("Account has been created!");
-                    history.push('/');
+                    history.push(redirectUrl);
                 })
 
             }).finally(() => setLoading(false)).catch(err => setError(err.message));
@@ -51,8 +52,7 @@ const useFirebase = () => {
             .then(res => {
                 setLoading(true);
                 setUser(res.user);
-                alert("Sign in Successful!")
-                history.push('/');
+                history.push(redirectUrl);
             }).finally(() => setLoading(false))
             .catch(err => setError(err.message))
     }
@@ -65,8 +65,7 @@ const useFirebase = () => {
             .then(res => {
                 setLoading(true);
                 setUser(res.user);
-                alert("Account has been created!");
-                history.push('/');
+                history.push(redirectUrl);
             }).finally(() => setLoading(false)).catch(err => setError(err.message))
     }
 
