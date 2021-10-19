@@ -83,7 +83,7 @@ const Appointment = () => {
                                         <textarea name="message" id="message" className="form-control" rows="6" placeholder="Your Message"></textarea>
                                     </div>
 
-                                    <button className="btn btn btn-primary  mb-3" href="confirmation.html">Make Appoinment<i className="icofont-simple-right ml-2"></i></button>
+                                    <button className="custom-button btn btn btn-primary  mb-3" href="confirmation.html">Make Appoinment<i className="icofont-simple-right ml-2"></i></button>
                                 </form>
                             </div>
                         </div>

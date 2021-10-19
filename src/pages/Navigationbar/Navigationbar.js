@@ -40,8 +40,10 @@ const Navigationbar = () => {
                         ) : (
                             <>
                                 <Navbar.Text>
-                                    <Button variant="dark" onClick={() => history.push('/signin')}>Sign In</Button>{' '}
-                                    <Button variant="dark" onClick={() => history.push('/signup')}>Sign Up</Button>{' '}
+                                    <div className="d-flex">
+                                        <Button className="custom-button" variant="dark" onClick={() => history.push('/signin')}>Sign In</Button>{' '}
+                                        <Button className="custom-button" variant="dark" onClick={() => history.push('/signup')}>Sign Up</Button>{' '}
+                                    </div>
                                 </Navbar.Text>
                             </>
                         )}

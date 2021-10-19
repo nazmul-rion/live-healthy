@@ -27,15 +27,15 @@ function App() {
           <Route path="/about">
             <AboutUs />
           </Route>
-
           <PrivateRoute path="/serviceDetails/:id">
             <ServiceDetailsPage />
           </PrivateRoute>
-          <Route path="/appointment">
+          <PrivateRoute path="/appointment">
             <Appointment />
+          </PrivateRoute>
+          <Route path="*">
+            <NotFound />
           </Route>
-
-          <Route path="*"><NotFound /></Route>
         </Switch>
         <Footer />
       </AuthProvider>

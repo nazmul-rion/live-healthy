@@ -30,7 +30,7 @@ const DoctorCard = (props) => {
                     </Table>
 
                     <div className="d-flex justify-content-center">
-                        <Button>Read Profile</Button>
+                        <Button className="custom-button">Read Profile</Button>
                     </div>
                 </div>
             </div>
