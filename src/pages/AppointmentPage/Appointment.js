@@ -28,8 +28,8 @@ const Appointment = () => {
                         <div className="col-lg-8">
                             <div className="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
                                 <h2 className="mb-2 title-color">Book an Appoinment</h2>
-                                <p className="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit.Iste dolorum atque similique praesentium soluta.</p>
-                                <form id="#" className="appoinment-form" method="post" action="#">
+                                <p className="mb-4">Please make sure you are provided authentic information</p>
+                                <div>
                                     <div className="row">
                                         <div className="col-lg-6">
                                             <div className="form-group">
@@ -83,8 +83,8 @@ const Appointment = () => {
                                         <textarea name="message" id="message" className="form-control" rows="6" placeholder="Your Message"></textarea>
                                     </div>
 
-                                    <button className="custom-button btn btn btn-primary  mb-3" href="confirmation.html">Make Appoinment<i className="icofont-simple-right ml-2"></i></button>
-                                </form>
+                                    <button className="custom-button btn btn btn-primary  mb-3">Make Appoinment</button>
+                                </div>
                             </div>
                         </div>
                     </div>
