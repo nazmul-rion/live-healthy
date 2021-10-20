@@ -14,7 +14,6 @@ const useFirebase = () => {
     const auth = getAuth();
     const history = useHistory();
     const location = useLocation();
-    console.log(location.state?.from);
     const redirectUrl = location.state?.from || '/';
     //on State Change 
     useEffect(() => {
