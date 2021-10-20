@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStat
 import { useEffect, useState } from 'react';
 import { useHistory, useLocation } from "react-router-dom";
 import initializeAuthentication from '../config/firebase';
+import swal from 'sweetalert';
 
 
 //initialize firebase  authentication
@@ -39,6 +40,7 @@ const useFirebase = () => {
                     displayName: name,
                     photoURL: image
                 }).then(() => {
+                    swal("Sign Up!", "Sign Up Successfull", "success");
                     history.push(redirectUrl);
                 })
 
@@ -51,6 +53,7 @@ const useFirebase = () => {
             .then(res => {
                 setLoading(true);
                 setUser(res.user);
+                swal("Sign in!", "Sign in Successfull", "success");
                 history.push(redirectUrl);
             }).finally(() => setLoading(false))
             .catch(err => setError(err.message))
@@ -64,6 +67,7 @@ const useFirebase = () => {
             .then(res => {
                 setLoading(true);
                 setUser(res.user);
+                swal("Sign in!", "Sign in Successfull", "success");
                 history.push(redirectUrl);
             }).finally(() => setLoading(false)).catch(err => setError(err.message))
     }
@@ -72,7 +76,7 @@ const useFirebase = () => {
     const signOutUser = () => {
         signOut(auth).then(() => {
             setUser({});
-            alert("Logout Successful!");
+            swal("Sign Out!", "Sign out Successfull", "error");
             history.push('/signin')
         }).finally(() => setLoading(false)).catch((err) => {
             setError(err.message);

@@ -1,8 +1,60 @@
-import React from 'react'
+import { react, useState } from 'react'
 import { Card } from 'react-bootstrap'
 import appointmentimg from '../../images/apt.jpg'
+import swal from 'sweetalert';
+
 
 const Appointment = () => {
+    const [dep, setDep] = useState();
+    const [doc, setDoc] = useState();
+    const [phone, setPhone] = useState();
+    const [date, setdate] = useState();
+    const [time, settime] = useState();
+    const [name, setname] = useState();
+    const [msg, setmsg] = useState();
+    const handledep = e => {
+        setDep(e.target.value);
+    }
+    const handledoc = e => {
+        setDoc(e.target.value);
+    }
+    const handlephone = e => {
+        setPhone(e.target.value);
+    }
+    const handledate = e => {
+        setdate(e.target.value);
+    }
+    const handletime = e => {
+        settime(e.target.value);
+    }
+    const handlename = e => {
+        setname(e.target.value);
+    }
+    const handlemsg = e => {
+        setmsg(e.target.value);
+    }
+
+    const appointmentSubmit = e => {
+        e.preventDefault();
+        if (dep && doc && phone && date && time && msg && name) {
+            swal({
+                title: "Are you sure?",
+                text: "You want to confirm your Appointment?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal("You Appointment is Confirm. We will notify you via email.", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal(" Sorry for your changing mind.");
+                    }
+                });
+        }
+    }
     return (
         <div>
             <Card className="bg-dark text-white">
@@ -33,7 +85,7 @@ const Appointment = () => {
                                     <div className="row">
                                         <div className="col-lg-6">
                                             <div className="form-group">
-                                                <select className="form-control mb-3" id="exampleFormControlSelect1">
+                                                <select required onBlur={handledep} className="form-control mb-3" id="exampleFormControlSelect1">
                                                     <option>Choose Department</option>
                                                     <option>Opthomology</option>
                                                     <option>Cardiology</option>
@@ -47,7 +99,7 @@ const Appointment = () => {
                                         </div>
                                         <div className="col-lg-6">
                                             <div className="form-group">
-                                                <select className="form-control" id="exampleFormControlSelect2">
+                                                <select onBlur={handledoc} className="form-control" id="exampleFormControlSelect2">
                                                     <option>Select Doctors</option>
                                                     <option>Prof. A.T.M. Khalilur Rahman</option>
                                                     <option>Prof. Dr. Farooque Ahmed</option>
@@ -58,32 +110,32 @@ const Appointment = () => {
 
                                         <div className="col-lg-6 mb-3">
                                             <div className="form-group">
-                                                <input name="date" id="date" type="date" className="form-control" placeholder="dd/mm/yyyy" />
+                                                <input onBlur={handledate} name="date" id="date" type="date" className="form-control" placeholder="dd/mm/yyyy" />
                                             </div>
                                         </div>
 
                                         <div className="col-lg-6 mb-3">
                                             <div className="form-group">
-                                                <input name="time" id="time" type="time" className="form-control" placeholder="08:00" />
+                                                <input onBlur={handletime} name="time" id="time" type="time" className="form-control" placeholder="08:00" />
                                             </div>
                                         </div>
                                         <div className="col-lg-6 mb-3">
                                             <div className="form-group">
-                                                <input name="name" id="name" type="text" className="form-control" placeholder="Full Name" />
+                                                <input required onBlur={handlename} name="name" id="name" type="text" className="form-control" placeholder="Full Name" />
                                             </div>
                                         </div>
 
                                         <div className="col-lg-6 mb-3">
                                             <div className="form-group">
-                                                <input name="phone" id="phone" type="text" className="form-control" placeholder="Phone Number" />
+                                                <input onBlur={handlephone} name="phone" id="phone" type="text" className="form-control" placeholder="Phone Number" />
                                             </div>
                                         </div>
                                     </div>
                                     <div className="form-group-2 mb-4">
-                                        <textarea name="message" id="message" className="form-control" rows="6" placeholder="Your Message"></textarea>
+                                        <textarea onBlur={handlemsg} name="message" id="message" className="form-control" rows="6" placeholder="Your Message"></textarea>
                                     </div>
 
-                                    <button className="custom-button btn btn btn-primary  mb-3">Make Appoinment</button>
+                                    <button onClick={appointmentSubmit} className="custom-button btn btn btn-primary mb-3">Make Appoinment</button>
                                 </div>
                             </div>
                         </div>
